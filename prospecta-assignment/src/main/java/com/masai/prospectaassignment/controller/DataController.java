@@ -39,10 +39,17 @@ public class DataController {
 	}
 
 	@PostMapping("/entries")
-	public ResponseEntity<String> saveEntriesHandler(@RequestBody Entries entries) {
+	public ResponseEntity<String> saveEntriesHandler(@RequestBody List<Entries> entry) {
+
+		Data data = restTemplate.getForObject("https://api.publicapis.org/entries", Data.class);
+
+		List<Entries> entries = data.getEntries();
+
+		entries.addAll(entry);
 
 		String str = entriesService.saveEntry(entries);
-		return new ResponseEntity<String>(str, HttpStatus.ACCEPTED);
+
+		return new ResponseEntity<String>(str, HttpStatus.CREATED);
 
 	}
 

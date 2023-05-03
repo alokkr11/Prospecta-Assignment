@@ -1,5 +1,7 @@
 package com.masai.prospectaassignment.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.masai.prospectaassignment.model.Entries;
@@ -11,9 +13,9 @@ public class EntriesServiceImpl implements EntriesService {
 	private EntriesRepository entriesRepository;
 
 	@Override
-	public String saveEntry(Entries entries) {
+	public String saveEntry(List<Entries> entries) {
 
-		entriesRepository.save(entries);
+		entriesRepository.saveAll(entries);
 
 		return "Entries added successfully!";
 
