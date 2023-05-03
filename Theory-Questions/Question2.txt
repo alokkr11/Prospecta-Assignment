@@ -1,0 +1,56 @@
+Suppose you have a CSV file with the data below.
+ 
+A1: 5, A2: 7, A3: 9, B1: 3, B2: 8, B3: =4+5, C1: =5+A1, C2: =A2+B2, C3: =C2+B3
+ 
+This can be represented in an excel sheet below:
+
+I want a program that will take the CSV input above and produce CSV output with the results.  
+If it is a value, then return a value.  If it is a formula then calculate the formula and return the value of that formula.
+ 
+How will you tackle the challenge above?
+
+1. First of all I will create a file with name csv.file in my current directory and put this information
+   inside that in a single line like written on the above.
+   
+2. Then I will take input using Scanner class and store the whole line in string as:-
+	Scanner sc =new Scanner(System.in);
+	String str = sc.nextLine();
+        
+3. After that I will convert this whole string in Array of String using split method.
+        String[] arr = str.split(", ");
+        
+4. Then, I will create a map and store it in the form of key-value pairs using loop over arr and split method using (:) to seperate.
+        Map<String, String> map = new LinkedHashMap<>();   
+        
+5. After that I will create a Map to convert the string values in the form of Integer value.
+   With the help of running a loop on first map I will check that there is simple Integer value or any 
+   function is there.
+        
+6. Solve the basic functionality like, how to tackle the basic mapping through calculation methods.        
+          
+        
+7. Then at last, I will loop the map using entry and show the result in form of new key-value pairs. 
+
+
+
+
+What type of errors you would you check for?
+
+The errors include:-
+1. There may be circular dependency like A1 is calling B1 and B1 is calling A1. 
+
+2. There may be incorrect format in csv file.
+
+3. we need to take care of signs like =,+-: etc 
+
+4. Strings should be in proper format.
+
+
+
+How might a user break your code?
+
+User can break the code by changing the file path of .csv file.
+there may be very large csv file so code will run out of memory.
+if user have done some changes in csv file.
+there may be data type error.
+these can break the code. We must handle exceptions to solve these issues.
