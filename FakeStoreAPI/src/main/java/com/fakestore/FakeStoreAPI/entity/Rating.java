@@ -6,8 +6,16 @@ import lombok.Data;
 
 @Data
 public class Rating {
-    @Min((long) 1.0)
-    @Max((long) 5.0)
+    @Min(value = 1, message = "Rate should not be less than 1")
+    @Max(value = 5, message = "Rate should not be greater than 5")
     private Double rate;
+    @Min(value = 1, message = "There should be at least one rating")
     private Integer count;
+
+    public Rating() {
+        this.count = 0;
+        this.rate = 0.0;
+    }
+
+    
 }

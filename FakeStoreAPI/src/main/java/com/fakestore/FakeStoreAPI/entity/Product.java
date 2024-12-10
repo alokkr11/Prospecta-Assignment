@@ -1,5 +1,6 @@
 package com.fakestore.FakeStoreAPI.entity;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -17,6 +18,7 @@ public class Product {
     private String category;
     @NotNull(message = "image should not be null")
     private String image;
+    @Valid
     private Rating rating;
 
 }
