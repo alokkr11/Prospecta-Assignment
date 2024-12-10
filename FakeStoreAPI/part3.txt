@@ -1,0 +1,13 @@
+Question: What are the key things you would consider when creating/consuming an API to ensure that it 
+is secure and reliable?
+
+Answer:
+Things to consider when creating/consuming an API to ensure that it 
+is secure and reliable are-
+1. Implement authentication mechanisms like OAuth, JWT, or API keys to ensure only authorized users can 
+   access the API and its resources.
+2. Encrypt sensitive data, such as passwords, using strong encryption algorithms and secure protocols like HTTPS.
+3. Use role-based access control (RBAC) to restrict access based on user roles.
+4. Enforce HTTPS to secure data in transit and avoid exposing sensitive information.
+5. Regularly conduct security audits and vulnerability assessments to identify and address potential threats.
+6. Implement error handling that avoids exposing sensitive system details in error messages.

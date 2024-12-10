@@ -1,0 +1,21 @@
+1. How will you tackle the challenge above?
+- Parse the CSV file and represent it in memory using a map with cell references.
+- Identify formulas by checking if the cell values start with =.
+- Evaluate formulas using a dependency graph to handle references to other cells.
+- Evalute the values that we get after checking the reference.
+- Write the calculated values into the output CSV file.
+
+2. What type of errors you would you check for?
+- Circular References: detect and prevent infinite loops caused by cells referencing each other in a cycle.
+- Invalid References: handle cases where a formula references non-existent cells.
+- Incorrect Formulas: check that formulas are syntactically correct (e.g., proper operators and operands).
+- Division by Zero: check and handle any formula that attempts to divide by zero.
+- Data Type Errors: ensure that the operands in formulas are numeric and compatible with the operations.
+
+3. How might a user break your code?
+- Circular Dependencies: creating formulas like A1 = B1 + C1, B1 = A1 + 2, etc.
+- Referencing Non-Existent Cells: using formulas that reference invalid cell positions, such as =Z99+5.
+- Incorrect Formula Syntax: adding malformed formulas like =A1+ or =5**B1.
+- Invalid Data Types: including non-numeric values in cells used for mathematical calculations.
+- Large Input Files: reading a CSV with a massive number of rows and columns, can causs memory exhaustion or slow performance.
+- Nested Formulas Without Limits: using nested or highly complex formulas.
