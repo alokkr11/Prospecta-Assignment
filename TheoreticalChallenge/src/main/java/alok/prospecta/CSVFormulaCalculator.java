@@ -40,8 +40,13 @@ public class CSVFormulaCalculator {
         StringBuilder sb = new StringBuilder();
 
         for (String s : positions) {
-            if (map.containsKey(s)) {
-                sb.append(map.get(s));
+
+            if (s.charAt(0) >= 'A' && s.charAt(0) <= 'Z') {
+                if (map.containsKey(s)) {
+                    sb.append(map.get(s));
+                } else {
+                    throw new RuntimeException("Reference not found!");
+                }
             } else {
                 sb.append(s);
             }
@@ -63,9 +68,13 @@ public class CSVFormulaCalculator {
             return Integer.parseInt(arr[0]) * Integer.parseInt(arr[1]);
         } else if (str.contains("/")) {
             String[] arr = str.split("/");
+            if (Integer.parseInt(arr[1]) == 0) {
+                throw new ArithmeticException("Divide by zero");
+            }
             return Integer.parseInt(arr[0]) / Integer.parseInt(arr[1]);
+        } else {
+            throw new RuntimeException("formula not supported");
         }
-        return 0;
     }
 
     // Write the map to a CSV file
