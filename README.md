@@ -15,7 +15,6 @@ FakeStoreAPI is a Spring Boot-based project designed to provide a simple and eff
   - [Get Products by Category](#get-products-by-category)
   - [Add a New Product](#add-a-new-product)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 - RESTful API for managing products.
